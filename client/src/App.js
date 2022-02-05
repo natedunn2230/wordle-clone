@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import walter from "./NateDunn.jpg";
 import "./App.css";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <img src={walter} className="App-logo" alt="JESSE" />
         <p>
           Edit <code>src/App.js</code>
         </p>

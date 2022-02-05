@@ -18,6 +18,10 @@ app.get("/test", (req, res) => {
   res.send("stuff");
 });
 
+app.get("/imSafeForWork", (req, res) => {
+  res.send("Wow look how safe I am.")
+});
+
 app.listen(5000, () => {
   console.log("app listening on port: ", 5000);
 });
