@@ -1,27 +1,35 @@
 const path = require("path");
+const fs = require("fs");
 const express = require("express");
 
 const app = express();
-app.use(express.static(path.join(__dirname, "../client/build")));
+const port = process.env.PORT || 5000;
 
+app.use(express.static(path.join(__dirname, "../client/build")));
+const words = fs
+  .readFileSync("./wordle-words.txt")
+  .toString()
+  .replaceAll("\n", " ")
+  .split(" ");
+
+// only serve html files in production
 if (process.env.NODE_ENV === "dev") {
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
 }
 
-app.get("/", (req, res) => {
-  res.send("welcome to wordle");
+app.get("/random-word", (req, res) => {
+  const randIdx = Math.floor(Math.random() * words.length);
+  res.send(words[randIdx]);
 });
 
-app.get("/test", (req, res) => {
-  res.send("stuff");
+app.get("/check-word", (req, res) => {
+  const word = req.query.word;
+  const inList = !!words.find((w) => w === word);
+  return res.send(inList);
 });
 
-app.get("/imSafeForWork", (req, res) => {
-  res.send("Wow look how safe I am.")
-});
-
-app.listen(5000, () => {
-  console.log("app listening on port: ", 5000);
+app.listen(port, () => {
+  console.log("app listening on port: ", port);
 });
