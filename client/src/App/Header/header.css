@@ -1,4 +1,13 @@
-.header{
-    border-bottom: 1px solid grey;
+.header {
+  border-bottom: 1px solid var(--color-grey-1);
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
 
+.header h1 {
+  padding: 0;
+  margin: 5px 0;
+  letter-spacing: 5px;
+  font-weight: bolder;
+  text-align: center;
 }

@@ -1,3 +1,38 @@
-.keyboard{
-    background-color: crimson;
+.keyboard {
+  user-select: none;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.keys {
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.key {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58px;
+  margin: 0 4px 0 0;
+  border-radius: 4px;
+  background-color: var(--color-grey-0);
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.key:hover {
+  background-color: var(--color-grey-1);
+  cursor: pointer;
+}
+
+.spacer {
+  flex: 0.5;
+}
+
+.lg {
+  flex: 2;
 }

@@ -1,4 +1,31 @@
-.playfield{
-    background-color: cadetblue;
-    
+.playfieldContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.playfield {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 360px;
+  max-height: 420px;
+}
+
+.warning {
+  display: none;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+@media screen and (max-height: 550px) {
+  .playfield {
+    display: none;
+  }
+
+  .warning {
+    display: initial;
+  }
 }
